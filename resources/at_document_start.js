@@ -7,6 +7,7 @@
    ╚════════════════════════════════════════════════════════════════════╝
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */
 
+
 (function(window, document, query, elements){
   "use strict";
 
@@ -30,14 +31,14 @@
                                  element.removeAttribute("data-work-realurl");
 
                                  /*bonus data*/
-                                 if(string === typeof xhr.getResponseHeader("Content-Length")) element.setAttribute("data-header-contentlength", xhr.getResponseHeader("Content-Length") );
-                                 if(string === typeof xhr.getResponseHeader("Last-Modified"))  element.setAttribute("data-header-lastmodified",  xhr.getResponseHeader("Last-Modified")  );
-                                 if(string === typeof xhr.getResponseHeader("Content-Type"))   element.setAttribute("data-header-contenttype",   xhr.getResponseHeader("Content-Type")   );
+                                 if("string" === typeof xhr.getResponseHeader("Content-Length")) element.setAttribute("data-header-contentlength", xhr.getResponseHeader("Content-Length") );
+                                 if("string" === typeof xhr.getResponseHeader("Last-Modified"))  element.setAttribute("data-header-lastmodified",  xhr.getResponseHeader("Last-Modified")  );
+                                 if("string" === typeof xhr.getResponseHeader("Content-Type"))   element.setAttribute("data-header-contenttype",   xhr.getResponseHeader("Content-Type")   );
                                };
       xhr.withCredentials = true;
       xhr.open('HEAD', element.href, true);
       xhr.send();
-    }
+    });
   }
 
   /* MAIN */
