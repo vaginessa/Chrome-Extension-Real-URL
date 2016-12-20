@@ -11,7 +11,7 @@
 NodeList.prototype.forEach  = Array.prototype.forEach;
 
 
-query = 'a[href]:not([href=""]):not([href^="#"]):not([href*="javascript:"]):not([href*="text/"]):not([href*="void("]):not([done-realurl])';  
+query = 'a[href][href^="##PROTOCOL##"]:not([done-realurl])'.replace("##PROTOCOL##", "https:" === location.protocol ? "https" : "http");  /* https will only call https, http can call https and http.
         /*
         'a[href*="/wp-"][href*="/download.php"][href*="id="]:not([data-work-realurl])'  //WordPress download-monitor only.
         */
@@ -24,9 +24,11 @@ function head(url, is_with_credentials, done_callback){
     if("string" !== typeof xhr.responseURL || "" === xhr.responseURL) return;
     done_callback(xhr);
   };
-  xhr.withCredentials = is_with_credentials; /* safe. will be used for same hostname */
-  xhr.open('HEAD', url, true);
-  xhr.send();
+  xhr.withCredentials = is_with_credentials; /* safe. only same hostname gets credentials */
+  try{
+    xhr.open('HEAD', url, true);
+    xhr.send();
+  }catch(err){}
 }
 
 
@@ -38,9 +40,7 @@ function action(){ "use strict";
   elements.forEach(function(element){
     element.setAttribute("done-realurl","");
 
-    if("https:" === document.location.protocol && "https:" !== element.protocol) return;  /* play safe, don't access insecure-locations from secure location */
-
-    head(element.href, (document.location.hostname === element.hostname) /*play safe only allow credentials for same domain*/, function(xhr){
+    head(element.href, (document.location.hostname === element.hostname), function(xhr){
       element.href = xhr.responseURL;
       element.setAttribute("done-realurl","success");
       
