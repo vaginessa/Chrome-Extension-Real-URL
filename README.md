@@ -1,5 +1,7 @@
 <h1> <img src="resources/icon.png" height="64" width="64"/> Chrome-Extension-Real-URL</h1>
 
+<h2>Flow 30* Redirects In The Background, And Update The Real-URL Into Your Page.</h2>
+
 <h2>Real-URL rewrites the links on the current page you are watching,
 stripping-away download-protections, and getting you the direct-download link.</h2>
 
@@ -35,6 +37,14 @@ Currently handles:
 ```
 Developer's HUB / Changelog
 
+2.0.1.1
++ enhanced security, play safe on SSL and different-domains.
+
+2.0.0.1
+* project architecture, support execution on pages with and without JavaScript support, no code-duplication using the scope of the chrome-extension.
+
+1.0.0.8
++ resolve all links, not just WordPress. resolve 30* codes and update the REAL url directly into the page.
 
 1.0.0.5
 + initial
