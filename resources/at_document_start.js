@@ -45,6 +45,7 @@ function action(){ "use strict";
       element.setAttribute("done-realurl","success");
       
       /*safe and useful. TODO:future upgrades. */
+      element.setAttribute("data-realurl-status",                              xhr.status("Content-Type"));
       element.setAttribute("data-realurl-contentlength",  (xhr.getResponseHeader("Content-Length") || ""));
       element.setAttribute("data-realurl-lastmodified",   (xhr.getResponseHeader("Last-Modified")  || ""));
       element.setAttribute("data-realurl-contenttype",    (xhr.getResponseHeader("Content-Type")   || ""));

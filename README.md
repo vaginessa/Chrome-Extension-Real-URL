@@ -35,6 +35,9 @@ Currently handles:
 ```
 Developer's HUB / Changelog
 
+2.0.3.2
++ add request-status to element's info-attributes.
+
 2.0.3.1
 * only handle https-to-https and http-to-https/http, query it in early-stage in the code, which is a more efficient way then later-filtering.
 + quite error-handling of open/send (to support early blocking in AdBlock/uBlock extensions sending 40* to hard-block nasty urls ;] )
