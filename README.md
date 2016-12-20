@@ -1,7 +1,5 @@
 <h1> <img src="resources/icon.png" height="64" width="64"/> Chrome-Extension-Real-URL</h1>
 
-<h2>Flow 30* Redirects In The Background, And Update The Real-URL Into Your Page.</h2>
-
 <h2>Real-URL rewrites the links on the current page you are watching,
 stripping-away download-protections, and getting you the direct-download link.</h2>
 
