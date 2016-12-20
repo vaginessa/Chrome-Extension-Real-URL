@@ -11,10 +11,10 @@
 NodeList.prototype.forEach  = Array.prototype.forEach;
 
 
-query = 'a[href][href^="##PROTOCOL##"]:not([done-realurl])'.replace("##PROTOCOL##", "https:" === location.protocol ? "https" : "http");  /* https will only call https, http can call https and http.
-        /*
-        'a[href*="/wp-"][href*="/download.php"][href*="id="]:not([data-work-realurl])'  //WordPress download-monitor only.
-        */
+query = 'a[href*="/wp-"][href*="/download.php"][href*="id="]:not([done-realurl])';                                                           //WordPress download-monitor only.
+/*
+query = 'a[href][href^="##PROTOCOL##"]:not([done-realurl])'.replace("##PROTOCOL##", "https:" === location.protocol ? "https" : "http");      //all links, (https-to-https, http-to-https/http).
+*/
 
 
 function head(url, is_with_credentials, done_callback){
@@ -45,7 +45,7 @@ function action(){ "use strict";
       element.setAttribute("done-realurl","success");
       
       /*safe and useful. TODO:future upgrades. */
-      element.setAttribute("data-realurl-status",                              xhr.status("Content-Type"));
+      element.setAttribute("data-realurl-status", xhr.status);
       element.setAttribute("data-realurl-contentlength",  (xhr.getResponseHeader("Content-Length") || ""));
       element.setAttribute("data-realurl-lastmodified",   (xhr.getResponseHeader("Last-Modified")  || ""));
       element.setAttribute("data-realurl-contenttype",    (xhr.getResponseHeader("Content-Type")   || ""));

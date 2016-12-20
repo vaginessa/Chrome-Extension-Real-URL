@@ -35,7 +35,10 @@ Currently handles:
 ```
 Developer's HUB / Changelog
 
-2.0.3.2
+2.0.4.1
+* back to WordPress-like pages only, as an operation-limiter.
+
+2.0.3.3
 + add request-status to element's info-attributes.
 
 2.0.3.1
