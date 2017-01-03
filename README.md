@@ -5,6 +5,7 @@ stripping-away download-protections, and getting you the direct-download link.</
 
 <img src="resources/screenshot_1.png"/>
 <img src="resources/screenshot_2.png"/>
+<img src="resources/screenshot_3.png"/>
 
 It makes your browsing experience more secure, by allowing you to see
 what is the real target of the link, without actually following it,
@@ -34,6 +35,9 @@ Currently handles:
 
 ```
 Developer's HUB / Changelog
+
+2.0.5.3
++ adding handling of attachment-links, this will show the real-links in many(!) bb-forums (such as xda-developers forums).
 
 2.0.4.1
 * back to WordPress-like pages only, as an operation-limiter.

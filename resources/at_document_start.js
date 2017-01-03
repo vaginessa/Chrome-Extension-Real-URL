@@ -11,10 +11,12 @@
 NodeList.prototype.forEach  = Array.prototype.forEach;
 
 
-query = 'a[href*="/wp-"][href*="/download.php"][href*="id="]:not([done-realurl])';                                                           //WordPress download-monitor only.
-/*
-query = 'a[href][href^="##PROTOCOL##"]:not([done-realurl])'.replace("##PROTOCOL##", "https:" === location.protocol ? "https" : "http");      //all links, (https-to-https, http-to-https/http).
-*/
+query = ['a[href*="/wp-"][href*="/download.php"][href*="id="]:not([done-realurl])'          /* WordPress download-monitor only */
+        ,'a[href*="attachment.php?"][href*="attachmentid="]:not([done-realurl])'            /* bb-forums such as forums.xda-developers */
+        ].join(',');
+        /*
+        query = 'a[href][href^="##PROTOCOL##"]:not([done-realurl])'.replace("##PROTOCOL##", "https:" === location.protocol ? "https" : "http");      //all links, (https-to-https, http-to-https/http).
+        */
 
 
 function head(url, is_with_credentials, done_callback){
