@@ -36,6 +36,12 @@ Currently handles:
 ```
 Developer's HUB / Changelog
 
+2.0.6.3
++ error handling
+
+2.0.6.2
+* adding prototyping for browser compatibility.
+
 2.0.6.1
 * tag-number updated instead of overriding it.
 
