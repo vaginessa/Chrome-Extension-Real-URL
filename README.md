@@ -36,6 +36,9 @@ Currently handles:
 ```
 Developer's HUB / Changelog
 
+2.0.6.1
+* tag-number updated instead of overriding it.
+
 2.0.5.3
 + adding handling of attachment-links, this will show the real-links in many(!) bb-forums (such as xda-developers forums).
 

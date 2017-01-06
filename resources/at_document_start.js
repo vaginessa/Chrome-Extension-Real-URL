@@ -10,6 +10,7 @@
 
 NodeList.prototype.forEach  = Array.prototype.forEach;
 
+counter_total = 0;
 
 query = ['a[href*="/wp-"][href*="/download.php"][href*="id="]:not([done-realurl])'          /* WordPress download-monitor only */
         ,'a[href*="attachment.php?"][href*="attachmentid="]:not([done-realurl])'            /* bb-forums such as forums.xda-developers */
@@ -37,7 +38,8 @@ function head(url, is_with_credentials, done_callback){
 function action(){ "use strict";
   var elements = document.querySelectorAll(query);
   if(null === elements || 0 === elements.length) return;
-  try{chrome.runtime.sendMessage({badge_data: elements.length});}catch(err){} /* update extension's badge. */
+  counter_total += elements.length;
+  try{chrome.runtime.sendMessage({badge_data: counter_total});}catch(err){} /* update extension's badge. */
 
   elements.forEach(function(element){
     element.setAttribute("done-realurl","");
