@@ -36,7 +36,7 @@ Currently handles:
 ```
 Developer's HUB / Changelog
 
-2.0.6.3
+2.0.6.4
 + error handling
 
 2.0.6.2
