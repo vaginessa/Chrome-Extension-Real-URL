@@ -11,9 +11,10 @@ NodeList.prototype.forEach  = Array.prototype.forEach;
 
 counter_total = 0;
 
-query = ['a[href*="/wp-"][href*="/download.php"][href*="id="]:not([done-realurl])'          /* WordPress download-monitor only */
-        ,'a[href*="attachment.php?"][href*="attachmentid="]:not([done-realurl])'            /* bb-forums such as forums.xda-developers */
-        ].join(',');
+query = ['a[href*="/wp-"][href*="/download.php"][href*="id="]'          /* WordPress download-monitor only */
+        ,'a[href*="attachment.php?"][href*="attachmentid="]'            /* bb-forums such as forums.xda-developers */
+        ].join(':not([done-realurl]),') + ":not([done-realurl])" /*for last one*/;
+
         /*
         query = 'a[href][href^="##PROTOCOL##"]:not([done-realurl])'.replace("##PROTOCOL##", "https:" === location.protocol ? "https" : "http");      //all links, (https-to-https, http-to-https/http).
         */
